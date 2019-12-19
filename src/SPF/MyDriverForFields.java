@@ -1,3 +1,4 @@
+package SPF;
 /*
  * Copyright (C) 2014, United States Government, as represented by the
  * Administrator of the National Aeronautics and Space Administration.
@@ -16,28 +17,12 @@
  * limitations under the License.
  */
 
-public class NumberExample {
-
-	private int value = 0;
-
-	public double run(int val) {
-		Number n = new Integer(val);
-		if (n.doubleValue() == 10.0) {
-			System.out.println("foo");
-		} else {
-			System.out.println("boo");
-		}
-		if (n.intValue() == 10) {
-			System.out.println("foo int");
-		} else {
-			System.out.println("boo int");
-		}
-		return value;
-	}
-
+public class MyDriverForFields {
+	// The test driver
 	public static void main(String[] args) {
-		NumberExample num = new NumberExample();
-		num.run(1);
-	}
+		MyClassWithFields mc = new MyClassWithFields();
 
+		mc.myMethod1();
+		Debug.printPC("\nMyClassWithFields.myMethod1 Path Condition: ");
+	}
 }

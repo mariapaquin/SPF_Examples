@@ -1,3 +1,4 @@
+package SPF;
 /*
  * Copyright (C) 2014, United States Government, as represented by the
  * Administrator of the National Aeronautics and Space Administration.
@@ -16,23 +17,21 @@
  * limitations under the License.
  */
 
-public class MyClass1 {
-	// The method you need tests for
-	public int myMethod(int x, int y) {
-		int z = x + y;
+public class MyClassWithFields {
+	@Symbolic("true")
+	public int field1;
+
+	@Symbolic("true")
+	public int field2;
+
+	public int myMethod1() {
+		int z = field1 + field2;
 		if (z > 0) {
 			z = 1;
 		} else {
-			z = z - x;
+			z = z - field1;
 		}
-		z = x * z;
+		z = field1 * z;
 		return z;
-	}
-
-	// The test driver
-	public static void main(String[] args) {
-		MyClass1 mc = new MyClass1();
-		int x = mc.myMethod(1, 2);
-		Debug.printPC("\nMyClass1.myMethod Path Condition: ");
 	}
 }

@@ -1,3 +1,4 @@
+package SPF;
 /*
  * Copyright (C) 2014, United States Government, as represented by the
  * Administrator of the National Aeronautics and Space Administration.
@@ -50,49 +51,36 @@ TERMINATION OF THIS AGREEMENT.
 
 import java.util.HashMap;
 
-public class StringTest {
+public class StringTest2 {
 
 	@Symbolic("true")
-	public static String s5 = "42";
+	public static String x_sym = "42";
 
-	// @Symbolic("true")
+	@Symbolic("true")
+	public static String y_sym = "42";
+
+	@Symbolic("true")
+	public static String z_sym = "42";
+
+	@Symbolic("true")
 	public static int s8 = 5;
 
 	public static void doTest() {
-		int q = assign(s5, "cc");
-		System.out.println(q);
+		theTest(x_sym, "hello", z_sym);
 	}
 
-	public static int assign(String x, String y) {
-
-		s5 = s5.concat("hello");
-		// String s6=s5.replace('a','b');
-		if (s5.equals("hello"))
-
-			System.out.println("!!!!!!!!!!!!!! HERE1");
-		else
-			System.out.println("!!!!!!!!!!!!!! HERE2");
-		// HashMap<String, String> m = new HashMap<String, String>();
-		// m.put(y, x);
-		// String k = m.get(y);
-		// int z;
-		//
-		//
-		// if(k.equals("ok"))
-		// z = 6;
-		// else
-		// if(k.equals("bb"))
-		// z = 3;
-		// else
-		// z = 4;
-		// return z;
-		return 0;
+	public static void theTest(String x, String y, String z) {
+		// y = y + " hello";
+		// x = x + z;
+		if (x.equals(y)) {
+			System.out.println("found eq");
+		} else {
+			System.out.println("found not eq");
+		}
 	}
 
 	public static void main(String srgs[]) {
 		doTest();
-		// String s = "foo";
-		// System.out.println(s.equals("foo"));
 	}
 
 }

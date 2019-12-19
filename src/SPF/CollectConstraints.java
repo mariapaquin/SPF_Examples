@@ -1,3 +1,4 @@
+package SPF;
 /*
  * Copyright (C) 2014, United States Government, as represented by the
  * Administrator of the National Aeronautics and Space Administration.
@@ -16,21 +17,24 @@
  * limitations under the License.
  */
 
-public class MyClassWithFields {
-	@Symbolic("true")
-	public int field1;
+public class CollectConstraints {
+	public static void test(int x, int y) {
+		int z = x - y;
+		if (z > 0)
+			System.out.println("GT ");
+		else
+			System.out.println("NOT-GT");
+		if (z != 0)
+			System.out.println("NZ ");
+		else
+			System.out.println("NOT-NZ");
 
-	@Symbolic("true")
-	public int field2;
+		System.out.println("z " + Debug.getSymbolicIntegerValue(z));
+		Debug.printPC("PC ");
+	}
 
-	public int myMethod1() {
-		int z = field1 + field2;
-		if (z > 0) {
-			z = 1;
-		} else {
-			z = z - field1;
-		}
-		z = field1 * z;
-		return z;
+	// The test driver
+	public static void main(String[] args) {
+		test(2, 3);
 	}
 }

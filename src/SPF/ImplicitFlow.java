@@ -1,3 +1,4 @@
+package SPF;
 /*
  * Copyright (C) 2014, United States Government, as represented by the
  * Administrator of the National Aeronautics and Space Administration.
@@ -16,22 +17,32 @@
  * limitations under the License.
  */
 
-public class MyDriver1 {
+public class ImplicitFlow {
 
-	// The method whose parameters are marked as symbolic.
-	private static void imposePreconditions(int x, int y) {
-		MyClass1 mc = new MyClass1();
-
-		// The preconditions
-		if (-100 <= x && x <= 100 && 1 <= y && y <= 3) {
-			mc.myMethod(x, y);
-			Debug.printPC("\nMyClass1.myMethod Path Condition: ");
-		}
+	int func(int H) {
+		int O;
+		if (H == 0)
+			O = 0;
+		else if (H == 1)
+			O = 1;
+		else if (H == 2)
+			O = 2;
+		else if (H == 3)
+			O = 3;
+		else if (H == 4)
+			O = 4;
+		else if (H == 5)
+			O = 5;
+		else if (H == 6)
+			O = 6;
+		else
+			O = 0;
+		return O;
 	}
 
-	// The test driver
 	public static void main(String[] args) {
-		// Actual arguments are ignored when doing symbolic execution.
-		imposePreconditions(1, 2);
+		ImplicitFlow imflow = new ImplicitFlow();
+		System.out.println("Output is: " + imflow.func(1));
 	}
+
 }

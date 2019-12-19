@@ -1,3 +1,4 @@
+package SPF;
 /*
  * Copyright (C) 2014, United States Government, as represented by the
  * Administrator of the National Aeronautics and Space Administration.
@@ -16,32 +17,22 @@
  * limitations under the License.
  */
 
-public class ImplicitFlow {
-
-	int func(int H) {
-		int O;
-		if (H == 0)
-			O = 0;
-		else if (H == 1)
-			O = 1;
-		else if (H == 2)
-			O = 2;
-		else if (H == 3)
-			O = 3;
-		else if (H == 4)
-			O = 4;
-		else if (H == 5)
-			O = 5;
-		else if (H == 6)
-			O = 6;
-		else
-			O = 0;
-		return O;
+public class MyClassFP {
+	public double myMethodFP(double x, double y) {
+		double z = x + y;
+		if (z > 0.0) {
+			z = 1.0;
+		} else {
+			z = z - x;
+		}
+		z = 2.0 * z;
+		return z;
 	}
 
+	// The test driver
 	public static void main(String[] args) {
-		ImplicitFlow imflow = new ImplicitFlow();
-		System.out.println("Output is: " + imflow.func(1));
+		MyClassFP mc = new MyClassFP();
+		double x = mc.myMethodFP(1.0, 22.0);
+		Debug.printPC("\nMyClassFP.myMethodFP Path Condition: ");
 	}
-
 }

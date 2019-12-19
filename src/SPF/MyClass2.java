@@ -1,3 +1,5 @@
+package SPF;
+
 /*
  * Copyright (C) 2014, United States Government, as represented by the
  * Administrator of the National Aeronautics and Space Administration.
@@ -16,18 +18,30 @@
  * limitations under the License.
  */
 
-public class ExampleDReal {
+import gov.nasa.jpf.vm.Verify;
 
+public class MyClass2 {
+	// The method you need tests for
+	private int myMethod2(int x, int y) {
+		int jpfIfCounter = 0;
+		int z = x + y;
+		if (z > 0) {
+			jpfIfCounter++;
+			z = 1;
+		}
+		if (x < 5) {
+			jpfIfCounter++;
+			Verify.ignoreIf(jpfIfCounter > 1);
+			z = -z;
+		}
+		Verify.ignoreIf(jpfIfCounter == 0);
+		return z;
+	}
+
+	// The test driver
 	public static void main(String[] args) {
-		// (new ExampleDReal()).test(0.0,0.0);
+		MyClass2 mc = new MyClass2();
+		int x = mc.myMethod2(1, 2);
+		Debug.printPC("\nMyClass2.myMethod2 Path Condition: ");
 	}
-
-	// this is a simplified example showing method abort taken from CEV_15EOR_LOR
-	public void test(int in1, int in2) {
-		if (Math.sin(in1) > Math.abs(in2))
-			System.out.println("success");
-
-		System.out.println((5 + Math.abs(3) / 2) + 9);
-	}
-
 }

@@ -1,3 +1,4 @@
+package SPF;
 /*
  * Copyright (C) 2014, United States Government, as represented by the
  * Administrator of the National Aeronautics and Space Administration.
@@ -16,12 +17,40 @@
  * limitations under the License.
  */
 
-public class MyDriverForFields {
-	// The test driver
-	public static void main(String[] args) {
-		MyClassWithFields mc = new MyClassWithFields();
+/**
+ * example to demonstrate creation of test suites for path coverage
+ */
+public class TestPaths {
 
-		mc.myMethod1();
-		Debug.printPC("\nMyClassWithFields.myMethod1 Path Condition: ");
+	public static void main(String[] args) {
+		// testMe(42, false);
+		System.out.println("!!!!!!!!!!!!!!! Start Testing! ");
+		(new TestPaths()).testMe2(0, false);
 	}
+
+	// how many tests do we need to cover all paths?
+	public static void testMe(int x, boolean b) {
+		System.out.println("x = " + x);
+
+		if (x <= 1200) {
+			System.out.println("  <= 1200");
+		}
+		if (x >= 1200) {
+			System.out.println("  >= 1200");
+		}
+	}
+
+	public void testMe2(int x, boolean b) {
+		System.out.println("!!!!!!!!!!!!!!! First step! ");
+		// System.out.println("x = " + x);
+		if (b) {
+			if (x <= 1200) {
+				System.out.println("  <= 1200");
+			}
+			if (x >= 1200) {
+				System.out.println("  >= 1200");
+			}
+		}
+	}
+
 }

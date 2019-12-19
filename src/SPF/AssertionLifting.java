@@ -1,3 +1,4 @@
+package SPF;
 /*
  * Copyright (C) 2014, United States Government, as represented by the
  * Administrator of the National Aeronautics and Space Administration.
@@ -16,22 +17,33 @@
  * limitations under the License.
  */
 
-public class MyClassFP {
-	public double myMethodFP(double x, double y) {
-		double z = x + y;
-		if (z > 0.0) {
-			z = 1.0;
-		} else {
-			z = z - x;
-		}
-		z = 2.0 * z;
-		return z;
+public class AssertionLifting {
+	public static void test(int x) {
+		System.out.println("br1");
+		// new assertion should be x>0 && x<=5
+		Debug.freshPCcopy();
+		Debug.addGT0(x);
+		Debug.addGT0(6 - x);
+		boolean result = Debug.checkSAT();
+
+		// compare with result = x>0 && x<=5
+		System.out.println("result " + result + " " + Debug.getSolvedPC());
+
+		// if(x>0&&x<=5)
+		// assert false;
+		if (x > 0) {
+			// assert(x>5);
+			if (x <= 5) {
+				System.out.println("assert violated " + Debug.getSolvedPC());
+			}
+
+			System.out.println("br2");
+		} else
+			System.out.println("br3");
 	}
 
 	// The test driver
 	public static void main(String[] args) {
-		MyClassFP mc = new MyClassFP();
-		double x = mc.myMethodFP(1.0, 22.0);
-		Debug.printPC("\nMyClassFP.myMethodFP Path Condition: ");
+		test(0);
 	}
 }

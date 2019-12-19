@@ -1,3 +1,4 @@
+package SPF;
 public class SubStringTest {
 
 	public static void main(String[] args) {

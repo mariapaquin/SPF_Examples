@@ -1,3 +1,4 @@
+package SPF;
 /*
  * Copyright (C) 2014, United States Government, as represented by the
  * Administrator of the National Aeronautics and Space Administration.
@@ -16,24 +17,28 @@
  * limitations under the License.
  */
 
-public class CollectConstraints {
-	public static void test(int x, int y) {
-		int z = x - y;
-		if (z > 0)
-			System.out.println("GT ");
-		else
-			System.out.println("NOT-GT");
-		if (z != 0)
-			System.out.println("NZ ");
-		else
-			System.out.println("NOT-NZ");
+public class NumberExample {
 
-		System.out.println("z " + Debug.getSymbolicIntegerValue(z));
-		Debug.printPC("PC ");
+	private int value = 0;
+
+	public double run(int val) {
+		Number n = new Integer(val);
+		if (n.doubleValue() == 10.0) {
+			System.out.println("foo");
+		} else {
+			System.out.println("boo");
+		}
+		if (n.intValue() == 10) {
+			System.out.println("foo int");
+		} else {
+			System.out.println("boo int");
+		}
+		return value;
 	}
 
-	// The test driver
 	public static void main(String[] args) {
-		test(2, 3);
+		NumberExample num = new NumberExample();
+		num.run(1);
 	}
+
 }

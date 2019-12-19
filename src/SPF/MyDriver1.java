@@ -1,3 +1,4 @@
+package SPF;
 /*
  * Copyright (C) 2014, United States Government, as represented by the
  * Administrator of the National Aeronautics and Space Administration.
@@ -16,33 +17,22 @@
  * limitations under the License.
  */
 
-public class AssertionLifting {
-	public static void test(int x) {
-		System.out.println("br1");
-		// new assertion should be x>0 && x<=5
-		Debug.freshPCcopy();
-		Debug.addGT0(x);
-		Debug.addGT0(6 - x);
-		boolean result = Debug.checkSAT();
+public class MyDriver1 {
 
-		// compare with result = x>0 && x<=5
-		System.out.println("result " + result + " " + Debug.getSolvedPC());
+	// The method whose parameters are marked as symbolic.
+	private static void imposePreconditions(int x, int y) {
+		MyClass1 mc = new MyClass1();
 
-		// if(x>0&&x<=5)
-		// assert false;
-		if (x > 0) {
-			// assert(x>5);
-			if (x <= 5) {
-				System.out.println("assert violated " + Debug.getSolvedPC());
-			}
-
-			System.out.println("br2");
-		} else
-			System.out.println("br3");
+		// The preconditions
+		if (-100 <= x && x <= 100 && 1 <= y && y <= 3) {
+			mc.myMethod(x, y);
+			Debug.printPC("\nMyClass1.myMethod Path Condition: ");
+		}
 	}
 
 	// The test driver
 	public static void main(String[] args) {
-		test(0);
+		// Actual arguments are ignored when doing symbolic execution.
+		imposePreconditions(1, 2);
 	}
 }

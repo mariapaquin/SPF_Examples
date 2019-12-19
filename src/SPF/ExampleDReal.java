@@ -1,3 +1,4 @@
+package SPF;
 /*
  * Copyright (C) 2014, United States Government, as represented by the
  * Administrator of the National Aeronautics and Space Administration.
@@ -16,58 +17,18 @@
  * limitations under the License.
  */
 
-public class ProbExample1 {
-
-	public static void calcProb() {
-
-	}
-
-	public static int test1(int x, int y) {
-		if (x > 0) {
-			calcProb();
-			if (x < y) {
-				calcProb();
-				return 5;
-			} else {
-				calcProb();
-				return y;
-			}
-		} else if (x < 0) {
-			if (x < y) {
-				calcProb();
-				return 7;
-			} else {
-				calcProb();
-				return x;
-			}
-		}
-		y = y + 1;
-		if (y > 0) {
-			calcProb();
-		}
-		return 0;
-
-	}
-
-	public static int test(int x, int y, int z) {
-		if (x > z) {
-			// calcProb();
-		}
-		if (z > 0) {
-			// calcProb();
-		}
-		System.out.println("now");
-		if (y > 0) {
-			System.out.println("now1");
-
-			// calcProb();
-		}
-		return 0;
-
-	}
+public class ExampleDReal {
 
 	public static void main(String[] args) {
-		test(1, 1, 1);
+		// (new ExampleDReal()).test(0.0,0.0);
+	}
+
+	// this is a simplified example showing method abort taken from CEV_15EOR_LOR
+	public void test(int in1, int in2) {
+		if (Math.sin(in1) > Math.abs(in2))
+			System.out.println("success");
+
+		System.out.println((5 + Math.abs(3) / 2) + 9);
 	}
 
 }
