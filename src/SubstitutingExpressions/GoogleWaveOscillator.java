@@ -1,5 +1,7 @@
 package SubstitutingExpressions;
 
+import java.util.Random;
+
 public class GoogleWaveOscillator {
 	public UnitInputPort variance;
 	private double phaseIncrement = 0.1;
@@ -35,7 +37,7 @@ public class GoogleWaveOscillator {
 				double v = variance.getValues()[0];
 				double range = ((Math.random() - 0.5) * 4.0 * v);
 				double scale = Math.pow(2.0, range );
-				phaseIncrement = convertFrequencyToPhaseIncrement( freqs[i] ) * scale;
+				phaseIncrement = new Random().nextDouble() * scale;
 
 				// Calculate random amplitude.
 				scale = 1.0 + ((Math.random() - 0.5) * 1.5 * v);
