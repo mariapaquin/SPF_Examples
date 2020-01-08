@@ -20,6 +20,7 @@ public class Branches {
 
 	public static void main(String[] args) {
 		branch(1, 2);
+		Test test = new Test();
 		InnerBranch inner = new InnerBranch();
 	}
 	
