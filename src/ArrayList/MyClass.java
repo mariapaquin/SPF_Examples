@@ -3,6 +3,8 @@ package ArrayList;
 import java.util.ArrayList;
 
 public class MyClass {
+	
+	MyClass2 myClass;
   
 	public static void branch(int x, int y) {
 	    ArrayList<String> cars = new ArrayList<String>();
