@@ -1,8 +1,16 @@
-package TypeChecking;
+package ArrayList;
 
-public class Branches {
+import java.util.ArrayList;
 
+public class MyClass {
+  
 	public static void branch(int x, int y) {
+	    ArrayList<String> cars = new ArrayList<String>();
+	    cars.add("Volvo");
+	    cars.add("BMW");
+	    cars.add("Ford");
+	    cars.add("Mazda");
+	    
 		if (x < 0) {
 			x = -x;
 		}
@@ -17,14 +25,4 @@ public class Branches {
 			System.out.println("x>=y>=0");
 		}
 	}
-
-	public static void main(String[] args) {
-		branch(1, 2);
-		InnerBranch inner = new InnerBranch();
-	}
-	
-	public static class InnerBranch {
-		
-	}
-
 }
